@@ -20,7 +20,7 @@
 #     NAME => q[DPKG::Log]
 #     NO_META => q[1]
 #     PREREQ_PM => { DateTime::TimeZone=>q[0], DateTime=>q[0], Test::More=>q[0], Params::Validate=>q[0], ExtUtils::MakeMaker=>q[6.42], DateTime::Format::Strptime=>q[0] }
-#     VERSION => q[1.00]
+#     VERSION => q[1.10]
 #     VERSION_FROM => q[lib/DPKG/Log.pm]
 #     dist => { PREOP=>q[$(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"] }
 #     realclean => { FILES=>q[MYMETA.yml] }
@@ -62,11 +62,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = DPKG::Log
 NAME_SYM = DPKG_Log
-VERSION = 1.00
+VERSION = 1.10
 VERSION_MACRO = VERSION
-VERSION_SYM = 1_00
+VERSION_SYM = 1_10
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 1.00
+XS_VERSION = 1.10
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -272,7 +272,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = DPKG-Log
-DISTVNAME = DPKG-Log-1.00
+DISTVNAME = DPKG-Log-1.10
 
 
 # --- MakeMaker macro section:
@@ -763,7 +763,7 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1.00">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="1.10">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Parse and analyse dpkg log files</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Patrick Schoenfeld &lt;schoenfeld@debian.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd

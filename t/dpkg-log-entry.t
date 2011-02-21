@@ -1,6 +1,20 @@
-use Test::More tests => 63;
+use Test::More tests => 76;
 use lib 'lib';
 use DPKG::Log;
+use DPKG::Log::Entry;
+
+can_ok('DPKG::Log::Entry', 'line');
+can_ok('DPKG::Log::Entry', 'lineno');
+can_ok('DPKG::Log::Entry', 'timestamp');
+can_ok('DPKG::Log::Entry', 'type');
+can_ok('DPKG::Log::Entry', 'associated_package');
+can_ok('DPKG::Log::Entry', 'action');
+can_ok('DPKG::Log::Entry', 'status');
+can_ok('DPKG::Log::Entry', 'subject');
+can_ok('DPKG::Log::Entry', 'installed_version');
+can_ok('DPKG::Log::Entry', 'available_version');
+can_ok('DPKG::Log::Entry', 'conffile');
+can_ok('DPKG::Log::Entry', 'decision');
 
 my $dpkg_log_entry;
 ok($dpkg_log_entry = DPKG::Log::Entry->new(
@@ -99,3 +113,4 @@ is($entry->type, "status", "entry $entry_no has correct type");
 is($entry->subject, "package", "entry $entry_no has correct subject");
 is($entry->associated_package, "libdatetime-format-strptime-perl", "entry $entry_no has correct package");
 is($entry->installed_version, "1.5000-1", "entry $entry_no has correct installed_version");
+ok($entry->new(line => "2011-02-02 11:15:33 startup archives unpack", lineno => 1), "init DPKG::Log::Entry from existing ref");

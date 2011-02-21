@@ -51,7 +51,7 @@ require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw( $valid_types $valid_actions );
 
-our $VERSION = '1.00';
+our $VERSION = '1.10';
 our $valid_types = {
     status => 1,
     action => 1,
@@ -85,6 +85,8 @@ as 'key' => 'value' pairs.
 =cut
 sub new {
     my $package = shift;
+    $package = ref($package) if ref($package);
+
     my %params = validate( 
         @_, { 
                 'line' => { 'type' => SCALAR },
@@ -274,6 +276,7 @@ sub available_version {
     } else {
         $available_version = $self->{available_version};
     }
+    return $available_version;
 }
 
 =item $dpkg_log_entry->conffile() / conffile
@@ -305,6 +308,7 @@ sub decision {
 }
 
 =back
+
 =head1 SEE ALSO
 
 L<DateTime>
