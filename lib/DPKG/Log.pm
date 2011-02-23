@@ -2,6 +2,10 @@
 
 DPKG::Log - Parse the dpkg log
 
+=head1 VERSION
+
+version 1.20
+
 =head1 SYNOPSIS
 
 use DPKG::Log;
@@ -20,12 +24,13 @@ as a DPKG::Log::Entry object.
 =cut
 
 package DPKG::Log;
+BEGIN {
+  $DPKG::Log::VERSION = '1.20';
+}
 
 use strict;
 use warnings;
 use 5.010;
-
-our $VERSION = "1.10";
 
 use Carp;
 use DPKG::Log::Entry;
@@ -369,7 +374,6 @@ sub __eval_datetime_info {
 
     if (not $from) {
         $from = DPKG::Log::Entry->new($entry_ref->[0])->timestamp;
-        print Dumper($from);
     }
     if (not $to) {
         $to = DPKG::Log::Entry->new($entry_ref->[-1])->timestamp;

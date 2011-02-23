@@ -2,6 +2,10 @@
 
 DPKG::Log::Entry - Describe a log entry in a dpkg.log
 
+=head1 VERSION
+
+version 1.20
+
 =head1 SYNOPSIS
 
 use DPKG::Log::Entry;
@@ -42,6 +46,9 @@ the various methods to access or modify them.
 
 =cut
 package DPKG::Log::Entry;
+BEGIN {
+  $DPKG::Log::Entry::VERSION = '1.20';
+}
 
 use strict;
 use warnings;
@@ -51,7 +58,6 @@ require Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw( $valid_types $valid_actions );
 
-our $VERSION = '1.10';
 our $valid_types = {
     status => 1,
     action => 1,

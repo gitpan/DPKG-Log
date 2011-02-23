@@ -1,9 +1,16 @@
 package DPKG::Log::Analyse;
+BEGIN {
+  $DPKG::Log::Analyse::VERSION = '1.20';
+}
 
 
 =head1 NAME
 
 DPKG::Log::Analyse - Analyse a dpkg log
+
+=head1 VERSION
+
+version 1.20
 
 =head1 SYNOPSIS
 
@@ -25,8 +32,6 @@ This module is used to analyse a dpkg log.
 use strict;
 use warnings;
 use 5.010;
-
-our $VERSION = "1.10";
 
 use Carp;
 use DPKG::Log;
